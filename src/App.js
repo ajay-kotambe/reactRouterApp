@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CompOne from "./components/CompOne";
+import CompTwo from "./components/CompTwo";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate(); //! we can't call react hooks in JSX we have to call it in component functions
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h3>By Buttons</h3>
+        <button onClick={() => navigate("/compOne")}>Component 1</button>
+        <button onClick={() => navigate("/compTwo")}>Component 2</button>
+      </div>
+      <div>
+        <h3>By Links</h3>
+        <Link to>Component 1</Link>
+        <Link>Component 2</Link>
+      </div>
+      <Routes>
+        <Route path="/compOne" element={<CompOne />} />
+        <Route path="/compTwo" element={<CompTwo />} />
+        <Route
+          path="*"
+          element={
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div>404!</div> <p>Page not found</p>
+            </div>
+          }
+        />
+      </Routes>
     </div>
   );
 }
