@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
 
-const DefaultComp = () => {
+const DefaultNewComp = () => {
   return (
     <div>
-      <h1>Home page</h1>
+      <Outlet />
     </div>
   );
 };
 
-export default DefaultComp;
+export default DefaultNewComp;

@@ -1,5 +1,11 @@
+.active {
+  color: aqua;
+  text-decoration: dashed blue;
+}
 
-.active{
-    color: aqua;
-    text-decoration: dashed blue;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 2;
+  align-items: center;
 }
